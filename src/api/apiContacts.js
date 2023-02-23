@@ -1,10 +1,20 @@
 import axios from "axios";
 
 export const apiContacts = axios.create({
-  baseURL: "https://63f3284ade3a0b242b3bf3a0.mockapi.io/contacts",
+  baseURL: "https://connections-api.herokuapp.com/contacts",
 });
 
+export const token = {
+  set: (token) => {
+    apiContacts.defaults.headers.Authorization = {token};
+    console.log("Authorization 1: ",apiContacts.defaults.headers.Authorization);
+  },
+  unSet: () => {
+    apiContacts.defaults.headers.Authorization = "";
+  },
+};
 export const getContacts = async () => {
+  console.log("Authorization get: ",apiContacts.defaults.headers.Authorization);
   const { data } = await apiContacts.get("");
   return data;
 };

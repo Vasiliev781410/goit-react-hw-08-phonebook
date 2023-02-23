@@ -11,13 +11,17 @@ export const ContactBook = () => {
   const selectContacts = useSelector((state) => {
     return state.contacts.contacts.items;
   });
-  
+   
   const selectFilter = useSelector((state) => state.contacts.filter);  
+  const selectToken = useSelector((state) => state.users.token);  
   const dispatch = useDispatch(); 
   
   useEffect(() => {
+    if (selectToken === null){
+      return;
+    }
     dispatch(getContactsThunk());
-  }, [dispatch]);
+  }, [selectToken, dispatch]);
   
  function  filterContact(){      
     return selectContacts.filter(contact=>contact.name.toLowerCase().includes(selectFilter.toLowerCase()));      

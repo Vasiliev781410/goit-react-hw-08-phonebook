@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 import PropTypes from 'prop-types';
 import css from "./LoginForm.module.css";
 import { useNavigate } from "react-router-dom";
-//import { addContactThunk } from "../../redux/contacts-thunk";
+import { signUpUserThunk, loginUserThunk } from "../../redux/users-thunk";
+import { getContactsThunk } from "redux/contacts-thunk.js";
 
 
 export const LoginForm = ({title, type}) => {  
@@ -28,26 +29,28 @@ export const LoginForm = ({title, type}) => {
                 break;
             default:
                 break;
-        }    
-       
+        }       
     };
     const onSubmitLocal = (evt)=>{  
-        evt.preventDefault();          
-        const user = {email, password, name}; 
+        evt.preventDefault();            
+        if (type === "Join") { 
+            const user = {name, email, password};  
+            console.log(user);    
+            dispatch(signUpUserThunk(user)); 
+            navigate("/contacts", { replace: true });
+            dispatch(getContactsThunk());
+            setName("");  
+        }else{          
+            dispatch(loginUserThunk({email, password, })); 
+            navigate("/contacts", { replace: true });
+        };  
         setPassword("");    
-        setEmail("");       
-       // dispatch(addContactThunk(newContact));                     
+        setEmail("");                               
     };
     const handleClickSignUp = ()=>{ 
         navigate("/register", { replace: true });
     } 
-    const handleClickButton = ()=>{ 
-        if (type !== "Join") {
-            return;
-        }
-        navigate("/contacts", { replace: true });
-    } 
-  
+                          
     return (
         <div className={css.container}>
             <form onSubmit={onSubmitLocal} className={css.loginForm} action="">
@@ -92,8 +95,8 @@ export const LoginForm = ({title, type}) => {
                         required
                     />                
                 </div> 
-                <button onClick={handleClickButton} className={css.loginForm__btn} type="submit">{type}</button>   
-                {type === "Login" ? <button onClick={handleClickSignUp} className={css.loginForm__commentSignUp} type="button"> Don't have account? Join</button> : <></>}                                                                                                                                                      
+                <button  className={css.loginForm__btn} type="submit">{type}</button>   
+                {type === "Login" ? <button onClick={handleClickSignUp} className={css.loginForm__commentSignUp} type="submit"> Don't have account? Join</button> : <></>}                                                                                                                                                      
             </form>
         </div>
     )    
