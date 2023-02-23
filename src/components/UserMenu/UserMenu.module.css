@@ -1,0 +1,31 @@
+.userMenu{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    display:  flex;
+    align-items: center;
+    justify-content: right;
+    gap: 10px;
+    width: 100%;
+    min-height: 30px;
+    /* background-color: rgb(255, 222, 173);    */
+}
+.userMenu__login{
+    margin: 0px;
+    padding: 0px;
+    font-size: 24px;   
+}
+.userMenu__logoutBtn{
+    padding: 0px 5px;
+    cursor: pointer;
+    background-color: inherit;
+    font-size: 18px;
+    border-radius: 5px;
+    color: darkgreen;
+    border: 1px solid grey;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.userMenu__logoutBtn:hover{
+    background-color: grey;  
+    color: #fff; 
+}

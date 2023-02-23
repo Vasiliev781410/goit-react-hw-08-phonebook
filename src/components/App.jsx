@@ -1,16 +1,17 @@
 
-import { ContactBook} from "./ContactBook/ContactBook.jsx";
+import { PageManager } from "./PageManager/PageManager.jsx";
  
 export const App = ()=> {                                 
    
     return (
       <div
         style={{
-          fontSize: 40,
-          color: '#010101'
+          fontSize: 26,
+          color: '#010101',
+          backgroundColor: 'rgb(255, 222, 173)',
         }}
       >   
-      <ContactBook/>            
+        <PageManager />           
       </div>     
     );
 };

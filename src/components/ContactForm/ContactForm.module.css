@@ -1,15 +1,24 @@
 .contactForm{
     padding: 20px 10px;
     display: block;
-    border: 1px solid #000;
-    width: 700px;  
+    border: 1px solid gainsboro;
+    width: 100%;  
+    background-color: aliceblue;  
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.contactForm__title{
+    margin: 0px;
+    padding: 10px 10px;
+    font-size: 34px;
+    text-decoration-line: underline;
 }
 .contactForm__item{       
-    margin-bottom: 30px;
+    margin-bottom: 30px;   
 }
 .contactForm__label{
     display: block;      
-    width: 150px;   
+    width: 150px; 
+    font-size: 24px;  
 }
 .contactForm__input{    
     display: block;  
@@ -18,10 +27,17 @@
     margin-top: 10px;  
 }
 .contactForm__addBtn{
+    cursor: pointer;
     padding: 5px;
-    width: 150px;
+    width: 256px;
+    font-size: 24px;
+    font-weight: 700;
     background-color: #fff;
-    border: 1px solid gray;
-    opacity: 70%;
+    border: 1px solid gray;    
     border-radius: 4px;
+}
+
+.contactForm__addBtn:hover{
+    background-color: rgb(63, 102, 63);
+    color: #fff;
 }

@@ -1,14 +1,41 @@
 .contactItem{
-    padding: 0px;
+    padding: 5px 5px 5px 125px;
     margin: 0px;
-    margin-left: 30px;
+    font-size: 22px;
+    font-style:italic;
+    width: 100%;
+    border: 1px solid rgb(226, 226, 233);
+}
+.contactItem:nth-child(2n){
+    background-color: ghostwhite;
+}
+.contactItem__phoneContainer{
+    display: flex;    
+}
+.contactItem__phone{
+    padding-top: 5px;
+    font-style: normal;
+    font-size: 20px;
+    font-weight: 600;
+    display: block;
+    min-width: 250px;
 }
 .deleteContactBtn{
-    padding: 0px 10px;
-    margin-left: 10px;
+    padding: 0px 20px;
+    margin-left: 30px;
+    cursor: pointer;
     border-radius: 4px;
-    font-size: 20px;
+    font-size: 16px;
+    font-style: italic;
     background-color: #fff;
+    color: darkcyan;
+    opacity: 50%;
     border: 1px solid gainsboro;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.deleteContactBtn:hover{
+    opacity: 100%;
+    background-color: darkcyan;
+    color: #fff;
+ 
 }

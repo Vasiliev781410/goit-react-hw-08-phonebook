@@ -1,6 +1,8 @@
 import { ContactForm } from "../ContactForm/ContactForm.jsx";
 import { Filter } from "../Filter/Filter.jsx";
 import { ContactList } from "../ContactList/ContactList.jsx";
+import { UserMenu } from "components/UserMenu/UserMenu.jsx";
+import css from "./ContactBook.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import { getContactsThunk } from "redux/contacts-thunk.js";
@@ -22,13 +24,12 @@ export const ContactBook = () => {
  }
 
   return (
-      <>      
-        <h1>Phonebook</h1>
-        <ContactForm />
-        <h2>Contacts</h2>
-        <Filter />            
+      <div className={css.container}>  
+        <UserMenu />  
+        <ContactForm title='Phonebook'/>      
+        <Filter title='Contacts'/>            
         <ContactList list={filterContact()}/>
-      </>
+      </div>
     );
  
 };
