@@ -40,9 +40,15 @@
     color: #fff;
 }
 .loginForm__commentSignUp{
+    border: none;
+    cursor: pointer;
     display: block;
     margin-top: 10px;
     font-size: 20px;
-    color: green;
+    color: darkslategray;  
+    background-color: inherit;
     text-decoration-line: underline;
+}
+.loginForm__commentSignUp:hover{
+    color: green;
 }

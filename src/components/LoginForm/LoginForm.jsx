@@ -93,7 +93,7 @@ export const LoginForm = ({title, type}) => {
                     />                
                 </div> 
                 <button onClick={handleClickButton} className={css.loginForm__btn} type="submit">{type}</button>   
-                {type === "Login" ? <p onClick={handleClickSignUp} className={css.loginForm__commentSignUp}> Don't have account? Join</p> : <></>}                                                                                                                                                      
+                {type === "Login" ? <button onClick={handleClickSignUp} className={css.loginForm__commentSignUp} type="button"> Don't have account? Join</button> : <></>}                                                                                                                                                      
             </form>
         </div>
     )    

@@ -8,8 +8,8 @@
 }
 .contactForm__title{
     margin: 0px;
-    padding: 10px 10px;
-    font-size: 34px;
+    padding: 10px 0px;
+    font-size: 36px;
     text-decoration-line: underline;
 }
 .contactForm__item{       
