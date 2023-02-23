@@ -8,7 +8,7 @@ export const App = ()=> {
         style={{
           fontSize: 26,
           color: '#010101',
-          backgroundColor: 'rgb(255, 222, 173)',
+          backgroundColor: 'rgb(255, 222, 163)',
         }}
       >   
         <PageManager />           

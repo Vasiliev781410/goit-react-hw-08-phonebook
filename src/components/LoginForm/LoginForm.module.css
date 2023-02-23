@@ -10,6 +10,7 @@
 }
 .login__header{
     font-size: 30px;
+    color: rgb(107, 6, 26);
 }
 .loginForm__item{       
     margin-bottom: 20px;    
@@ -23,7 +24,9 @@
     display: block;  
     width: 250px; 
     height: 25px;
-    margin-top: 10px;  
+    margin-top: 10px;
+    border: 1px solid grey;  
+    border-radius: 4px;
 }
 .loginForm__btn{
     padding: 5px;

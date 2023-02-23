@@ -11,6 +11,7 @@
     padding: 10px 0px;
     font-size: 36px;
     text-decoration-line: underline;
+    color: rgb(5, 86, 88);
 }
 .contactForm__item{       
     margin-bottom: 30px;   
@@ -24,7 +25,8 @@
     display: block;  
     width: 250px; 
     height: 25px;
-    margin-top: 10px;  
+    margin-top: 10px; 
+    border-radius: 4px; 
 }
 .contactForm__addBtn{
     cursor: pointer;
