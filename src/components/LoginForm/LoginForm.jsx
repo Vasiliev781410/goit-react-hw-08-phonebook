@@ -43,7 +43,12 @@ export const LoginForm = ({title, type}) => {
         setEmail("");                               
     };
     const handleClickSignUp = ()=>{ 
-        navigate("/register", { replace: true });
+        console.log('type: ',type);
+        if (type === "Join") { 
+            navigate("/login", { replace: false });
+        }else{
+            navigate("/register", { replace: false });
+        }
     } 
                           
     return (
@@ -91,7 +96,7 @@ export const LoginForm = ({title, type}) => {
                     />                
                 </div> 
                 <button  className={css.loginForm__btn} type="submit">{type}</button>   
-                {type === "Login" ? <button onClick={handleClickSignUp} className={css.loginForm__commentSignUp} type="submit"> Don't have account? Join</button> : <></>}                                                                                                                                                      
+                {type === "Login" ? <button onClick={handleClickSignUp} className={css.loginForm__commentSignUp} type="button"> Don't have account? Join</button> : <button onClick={handleClickSignUp} className={css.loginForm__commentSignUp} type="button">{"<< "}Back </button>}                                                                                                                                                       
             </form>
         </div>
     )    
@@ -101,3 +106,5 @@ LoginForm.propTypes = {
     title: PropTypes.string, 
     type: PropTypes.string,  
 };
+
+
