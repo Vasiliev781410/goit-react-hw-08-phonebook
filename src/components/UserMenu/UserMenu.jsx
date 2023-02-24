@@ -1,6 +1,4 @@
 import css from "./UserMenu.module.css";
-//import { useNavigate } from "react-router-dom";
-import { token } from "api/apiUsers.js";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUserThunk } from "../../redux/users-thunk";
 
