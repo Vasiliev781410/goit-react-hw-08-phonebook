@@ -46,7 +46,8 @@ export const LoginForm = ({title, type}) => {
         console.log('type: ',type);
         if (type === "Join") { 
             navigate("/login", { replace: false });
-        }else{
+        }
+        else{
             navigate("/register", { replace: false });
         }
     } 
@@ -107,4 +108,4 @@ LoginForm.propTypes = {
     type: PropTypes.string,  
 };
 
-
+//                {type === "Login" ? <button onClick={handleClickSignUp} className={css.loginForm__commentSignUp} type="button"> Don't have account? Join</button> : <button onClick={handleClickSignUp} className={css.loginForm__commentSignUp} type="button">{"<< "}Back </button>}  
