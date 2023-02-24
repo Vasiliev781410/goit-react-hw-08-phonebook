@@ -4,8 +4,6 @@ import PropTypes from 'prop-types';
 import css from "./LoginForm.module.css";
 import { useNavigate } from "react-router-dom";
 import { signUpUserThunk, loginUserThunk } from "../../redux/users-thunk";
-import { getContactsThunk } from "redux/contacts-thunk.js";
-
 
 export const LoginForm = ({title, type}) => {  
     const [name, setName] = useState(""); 
@@ -13,7 +11,7 @@ export const LoginForm = ({title, type}) => {
     const [password,setPassword] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
-  
+    
     const onChange = (e)=>{
         e.preventDefault();
         const {name,value} = e.target;
@@ -36,13 +34,10 @@ export const LoginForm = ({title, type}) => {
         if (type === "Join") { 
             const user = {name, email, password};  
             console.log(user);    
-            dispatch(signUpUserThunk(user)); 
-            navigate("/contacts", { replace: true });
-            dispatch(getContactsThunk());
+            dispatch(signUpUserThunk(user));                
             setName("");  
         }else{          
             dispatch(loginUserThunk({email, password, })); 
-            navigate("/contacts", { replace: true });
         };  
         setPassword("");    
         setEmail("");                               
@@ -89,7 +84,7 @@ export const LoginForm = ({title, type}) => {
                         onChange={onChange}
                         value={password}
                         className={css.loginForm__input}
-                        type="text"
+                        type="password"
                         name="password"
                         id="inputPassword" 
                         required

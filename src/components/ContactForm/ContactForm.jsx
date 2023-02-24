@@ -28,7 +28,7 @@ export const ContactForm = ({title}) => {
     };
     const onSubmitLocal = (evt)=>{  
         evt.preventDefault();          
-        const newContact = {"name": name, "phone": number,}; 
+        const newContact = {name, number,}; 
         setName("");    
         setNumber("");  
         if (selectContacts.some((contact) => contact.name.toLowerCase().trim() === name.toLowerCase().trim())) {

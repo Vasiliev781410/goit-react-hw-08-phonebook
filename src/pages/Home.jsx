@@ -5,3 +5,5 @@ export const Home = () => {
         <ContactBook />
     )     
 }
+
+export default Home;

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { loginUser, signUpUser} from '../api/apiUsers.js';
-import { token } from "api/apiContacts.js";
+//import { apiContacts } from "../api/axiosInstances.js";
+import { logOutService, loginUser, signUpUser, refreshUser, token} from '../api/apiUsers.js';
 
 export const signUpUserThunk = createAsyncThunk(
   "users/signUpUser",
@@ -30,6 +30,35 @@ export const loginUserThunk = createAsyncThunk(
       }
     }
   );
-  
 
+  export const logoutUserThunk = createAsyncThunk(
+    "users/logoutUser",
+    async (contact, { rejectWithValue, dispatch }) => {
+      try {
+        await logOutService();
+        token.unSet();
+        console.log("logout ");
+        //return data;    
+      } catch {
+        return rejectWithValue();
+      }
+    }
+  );
 
+  export const refreshUserThunk = createAsyncThunk(
+    "users/refreshUser",
+    async (_, { rejectWithValue, getState }) => {
+      try {
+        console.log('getState().users.token: ',getState().users.token);
+        const savedToken = getState().users.token;
+        if (!savedToken) {
+          return rejectWithValue("there is no token");
+        }
+        token.set(savedToken);
+        const data = await refreshUser();
+        return data;
+      } catch (error) {
+        return rejectWithValue(error.message);
+      }
+    }
+  );

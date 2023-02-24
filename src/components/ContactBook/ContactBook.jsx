@@ -4,7 +4,7 @@ import { ContactList } from "../ContactList/ContactList.jsx";
 import { UserMenu } from "components/UserMenu/UserMenu.jsx";
 import css from "./ContactBook.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { getContactsThunk } from "redux/contacts-thunk.js";
 
 export const ContactBook = () => {  
@@ -12,16 +12,13 @@ export const ContactBook = () => {
     return state.contacts.contacts.items;
   });
    
-  const selectFilter = useSelector((state) => state.contacts.filter);  
-  const selectToken = useSelector((state) => state.users.token);  
+  const selectFilter = useSelector((state) => state.contacts.filter);     
   const dispatch = useDispatch(); 
   
-  useEffect(() => {
-    if (selectToken === null){
-      return;
-    }
-    dispatch(getContactsThunk());
-  }, [selectToken, dispatch]);
+  useEffect(() => { 
+    
+    dispatch(getContactsThunk()); 
+  }, [dispatch]);
   
  function  filterContact(){      
     return selectContacts.filter(contact=>contact.name.toLowerCase().includes(selectFilter.toLowerCase()));      

@@ -5,3 +5,5 @@ export const Login = () => {
         <LoginForm title="Access to your Contact book!"  type="Login"/>
     )    
 }
+
+export default Login;

@@ -15,7 +15,7 @@ export const ContactItem = ({contact})=>{
     return (
     <li className={css.contactItem}>{[contact.name+": "]}
         <div className={css.contactItem__phoneContainer}>
-            <span className={css.contactItem__phone}>{contact.phone}</span>
+            <span className={css.contactItem__phone}>{contact.number}</span>
             <button className={css.deleteContactBtn} onClick={onDeleteContact} type="button" id={contact.id}>Delete</button>
         </div>
     </li>   

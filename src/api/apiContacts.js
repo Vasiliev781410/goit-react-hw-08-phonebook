@@ -1,30 +1,17 @@
-import axios from "axios";
+import { apiContacts } from "./axiosInstances.js";
 
-export const apiContacts = axios.create({
-  baseURL: "https://connections-api.herokuapp.com/contacts",
-});
-
-export const token = {
-  set: (token) => {
-    apiContacts.defaults.headers.Authorization = {token};
-    console.log("Authorization 1: ",apiContacts.defaults.headers.Authorization);
-  },
-  unSet: () => {
-    apiContacts.defaults.headers.Authorization = "";
-  },
-};
-export const getContacts = async () => {
+export const getContacts = async () => {  
   console.log("Authorization get: ",apiContacts.defaults.headers.Authorization);
-  const { data } = await apiContacts.get("");
+  const { data } = await apiContacts.get("contacts");
   return data;
 };
 
 export const addContact = async (newContact) => {
-  const { data } = await apiContacts.post("",newContact);
+  const { data } = await apiContacts.post("contacts",newContact);
   return data;
 };
 
 export const deleteContact = async (id) => {
-  const { data } = await apiContacts.delete(id);
+  const { data } = await apiContacts.delete(`contacts/${id}`);
   return data;
 };
